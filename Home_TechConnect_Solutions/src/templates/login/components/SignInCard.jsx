@@ -83,8 +83,24 @@ export default function SignInCard() {
       setPasswordErrorMessage('');
     }
 
-    return isValid;
+
+
+
+
+    //adicionando credenciais ficticias para utilizar durante a apresentação da aplicação, em uma aplicação em produção, chamariamos API
+    if (isValid) {
+      if (email.value === 'email@email.com' && password.value === 'password') {
+        window.location.href = '/dashboard'; // redireciona para a dashboard
+      } else {
+        alert('Email ou senha incorretos.');
+      }
+    }
+
   };
+
+
+
+
 
   return (
     <Card variant="outlined">
