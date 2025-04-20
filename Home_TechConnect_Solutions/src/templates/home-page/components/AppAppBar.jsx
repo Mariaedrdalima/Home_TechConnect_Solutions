@@ -12,7 +12,7 @@ import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ColorModeIconDropdown from '../../shared-theme/ColorModeIconDropdown';
-import Sitemark from './SitemarkIcon';
+import Sitemark from '../../home/components/SitemarkIcon';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -33,6 +33,9 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }));
 
 export default function AppAppBar() {
+  const navigate = useNavigate();
+  const handleClick = () => {navigate("/login");}
+
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen) => () => {
@@ -87,6 +90,8 @@ export default function AppAppBar() {
               color="primary"
               variant="contained"
               size="small"
+              onClick={handleClick}
+              
               >
               Customer Area
             </Button>
@@ -131,7 +136,7 @@ export default function AppAppBar() {
                 <MenuItem>Contacts</MenuItem>
                 <Divider sx={{ my: 3 }} />
                 <MenuItem>
-                  <Button color="primary" variant="contained" fullWidth>
+                  <Button color="primary" variant="contained" fullWidth onClick={handleClick}>
                     Customer Area
                   </Button>
                 </MenuItem>

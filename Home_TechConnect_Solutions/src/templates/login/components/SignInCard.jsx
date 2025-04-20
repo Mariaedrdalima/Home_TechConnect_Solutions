@@ -87,7 +87,7 @@ export default function SignInCard() {
 
 
 
-    //adicionando credenciais ficticias para utilizar durante a apresentação da aplicação, em uma aplicação em produção, chamariamos API
+    //adicionando credenciais ficticias para utilizar durante a apresentação da aplicação, em uma aplicação em produção, chamariamos API para autenticar
     if (isValid) {
       if (email.value === 'email@email.com' && password.value === 'password') {
         window.location.href = '/dashboard'; // redireciona para a dashboard
@@ -95,12 +95,7 @@ export default function SignInCard() {
         alert('Email ou senha incorretos.');
       }
     }
-
   };
-
-
-
-
 
   return (
     <Card variant="outlined">
@@ -170,7 +165,7 @@ export default function SignInCard() {
           label="Remember me"
         />
         <ForgotPassword open={open} handleClose={handleClose} />
-        <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
+        <Button type="submit" fullWidth variant="contained">
           Sign in
         </Button>
         <Typography sx={{ textAlign: 'center' }}>
@@ -185,25 +180,6 @@ export default function SignInCard() {
             </Link>
           </span>
         </Typography>
-      </Box>
-      <Divider>or</Divider>
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-        <Button
-          fullWidth
-          variant="outlined"
-          onClick={() => alert('Sign in with Google')}
-          startIcon={<GoogleIcon />}
-        >
-          Sign in with Google
-        </Button>
-        <Button
-          fullWidth
-          variant="outlined"
-          onClick={() => alert('Sign in with Facebook')}
-          startIcon={<FacebookIcon />}
-        >
-          Sign in with Facebook
-        </Button>
       </Box>
     </Card>
   );

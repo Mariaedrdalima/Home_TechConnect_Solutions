@@ -1,14 +1,15 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Home from './templates/home/Home.jsx'
+import HomePage from './templates/home-page/HomePage.jsx'
 import Login from './templates/login/Login.jsx'
 import Dashboard from './templates/dashboard/Dashboard.jsx'
+import Home from './templates/home/Home.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <HomePage />,
   },
   {
     path: "/login",
@@ -16,7 +17,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />
+    element:<Dashboard />
+  },
+  {
+    path: "/home",
+    element:<Home />
   },
 ])
 
