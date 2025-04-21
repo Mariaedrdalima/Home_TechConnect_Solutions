@@ -1,9 +1,19 @@
-import TcLogo from '../../assets/tc_complete.svg'
+import * as React from 'react';
+import { useColorScheme } from '@mui/material/styles';
 
-export default function TcIcon(w,h){
-    return (
-        <div>
-          <img src={TcLogo} width={200} height={200} />
-        </div>
-      );
+import TcLogoLight from '../../assets/tc_complete.svg';
+import TcLogoDark from '../../assets/tc_complete_dark.svg';
+
+export default function TcLogo() {
+  const { mode } = useColorScheme();
+
+  const logoSrc = mode === 'dark' ? TcLogoDark : TcLogoLight;
+
+  console.log('[TcLogo] Modo atual:', mode);
+
+  return (
+    <div>
+      <img src={logoSrc} width={200} height={200} alt="TcLogo" />
+    </div>
+  );
 }

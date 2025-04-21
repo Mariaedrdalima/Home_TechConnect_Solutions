@@ -12,7 +12,6 @@ import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ColorModeIconDropdown from '../../shared-theme/ColorModeIconDropdown';
-import Sitemark from '../../home-page/components/SitemarkIcon';
 import { useNavigate } from 'react-router-dom';
 import TcLogo from '../../shared-theme/TcIcons'
 
