@@ -12,15 +12,16 @@ import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ColorModeIconDropdown from '../../shared-theme/ColorModeIconDropdown';
-import Sitemark from '../../home/components/SitemarkIcon';
+import Sitemark from '../../home-page/components/SitemarkIcon';
 import { useNavigate } from 'react-router-dom';
-
+import TcLogo from '../../shared-theme/TcIcons'
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
   flexShrink: 0,
+  height:'64px',
   borderRadius: `calc(${theme.shape.borderRadius}px + 8px)`,
   backdropFilter: 'blur(24px)',
   border: '1px solid',
@@ -50,13 +51,13 @@ export default function AppAppBar() {
         boxShadow: 0,
         bgcolor: 'transparent',
         backgroundImage: 'none',
-        mt: 'calc(var(--template-frame-height, 0px) + 28px)',
+        mt: 'calc(var(--template-frame-height, 0px) + 20px)',
       }}
     >
       <Container maxWidth="lg">
         <StyledToolbar variant="dense" disableGutters>
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
-            <Sitemark />
+            <TcLogo />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
               <Button
                 variant="text"

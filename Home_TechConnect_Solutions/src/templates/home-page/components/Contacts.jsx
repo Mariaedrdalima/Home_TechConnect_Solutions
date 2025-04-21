@@ -2,12 +2,9 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import Grid from '@mui/material/Grid';
 
 const copyToClipboard = async (text) => {
   try {

@@ -4,7 +4,6 @@ import Stack from '@mui/material/Stack';
 import AppTheme from '../shared-theme/AppTheme';
 import ColorModeSelect from '../shared-theme/ColorModeSelect';
 import SignInCard from './components/SignInCard';
-import Content from './components/Content';
 
 export default function Home(props) {
   return (
@@ -57,7 +56,6 @@ export default function Home(props) {
               m: 'auto',
             }}
           >
-            <Content />
             <SignInCard />
           </Stack>
         </Stack>

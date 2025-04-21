@@ -12,7 +12,8 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import ForgotPassword from './ForgotPassword';
-import { GoogleIcon, FacebookIcon, SitemarkIcon } from './CustomIcons';
+import TcLogo from '../../shared-theme/TcIcons'
+
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -98,16 +99,15 @@ export default function SignInCard() {
   };
 
   return (
-    <Card variant="outlined">
-      <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-        <SitemarkIcon />
-      </Box>
+    <Card variant="outlined" sx={{height:'500px'}}>
       <Typography
         component="h1"
         variant="h4"
-        sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}
-      >
-        Sign in
+        sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2rem)' }}>
+        <Box sx={{width: '64px', height:'120px'}}>
+          <TcLogo />
+        </Box>
+        Customer Area
       </Typography>
       <Box
         component="form"
