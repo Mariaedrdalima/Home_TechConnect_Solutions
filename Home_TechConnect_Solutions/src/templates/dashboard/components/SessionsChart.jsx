@@ -125,6 +125,34 @@ export default function SessionsChart() {
               ],
               area: true,
             },
+            {
+              id: 'teste',
+              label: 'Teste',
+              showMark: false,
+              curve: 'linear',
+              stack: 'total',
+              stackOrder: 'ascending',
+              data: [
+                1000, 1500, 1200, 1700, 1300, 2000, 2400, 2200, 2600, 2800, 2500,
+                3000, 3400, 3700, 3200, 3900, 4100, 3500, 4300, 4500, 4000, 4700,
+                5000, 5200, 4800, 5400, 5600, 5900, 6100, 6300,
+              ],
+              area: true,
+            },
+            {
+              id: 'flavor',
+              label: 'Flavor',
+              showMark: false,
+              curve: 'linear',
+              stack: 'total',
+              stackOrder: 'ascending',
+              data: [
+                1000, 1500, 1200, 1700, 1300, 2000, 2400, 2200, 2600, 2800, 2500,
+                3000, 3400, 3700, 3200, 3900, 4100, 3500, 4300, 4500, 4000, 4700,
+                5000, 5200, 4800, 5400, 5600, 5900, 6100, 6300,
+              ],
+              area: true,
+            },
           ]}
           height={250}
           margin={{ left: 50, right: 20, top: 20, bottom: 20 }}

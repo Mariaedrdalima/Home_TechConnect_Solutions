@@ -42,14 +42,49 @@ const getZabbixData = async (req, res) => {
   }
 };
 
-const getDownHistoryData = async (req, res) => {
-    try {
-      const downHistoryData = await prisma.downHistory.findMany();
-      res.status(200).json(downHistoryData);
-    } catch (err) {
-      console.error('Erro ao buscar dados do DownHistory:', err);
-      res.status(500).json({ message: 'Erro ao buscar dados', error: err.message });
+async function getMetricsByInterface(req, res) {
+    const { interfaceName, metric } = req.query;
+  
+    if (!interfaceName || !metric) {
+      return res.status(400).json({ error: 'interfaceName e metric são obrigatórios' });
     }
-  };
+  
+    try {
+      const records = await prisma.downHistory.findMany({
+        where: {
+          nome: {
+            contains: metric,  // Agora com ILIKE, busca insensível ao caso
+            mode: 'insensitive', // Ignora maiúsculas/minúsculas
+          },
+          key: {
+            contains: interfaceName,
+            mode: 'insensitive', // Ignora maiúsculas/minúsculas
+          },
+        },
+        orderBy: {
+          date: 'asc',
+        },
+        select: {
+          date: true,
+          value: true,
+        },
+      });
+  
+      // Verifique se encontrou algum dado
+      if (records.length === 0) {
+        return res.status(404).json({ message: 'Nenhum dado encontrado' });
+      }
+  
+      const data = records.map((record) => ({
+        date: record.date,
+        value: record.value,
+      }));
+  
+      res.json({ interface: interfaceName, metric, data });
+    } catch (error) {
+      console.error('Erro ao buscar métricas:', error);
+      res.status(500).json({ error: 'Erro interno ao buscar métricas' });
+    }
+  }
 
-module.exports = { getZabbixData, getDownHistoryData};
+module.exports = { getZabbixData, getMetricsByInterface };

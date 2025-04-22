@@ -6,6 +6,6 @@ const routes = Router();
 
 routes.get("/test", testController.handle);
 routes.get("/zabbix-data", zabbixController.getZabbixData);
-router.get('/api/down-history', zabbixController.getDownHistoryData);
+routes.get('/api/down-history', zabbixController.getMetricsByInterface);
 
 module.exports = routes;
