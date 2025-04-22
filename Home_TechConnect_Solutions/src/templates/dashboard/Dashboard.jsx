@@ -7,7 +7,6 @@ import Stack from '@mui/material/Stack';
 import AppNavbar from './components/AppNavbar';
 import Header from './components/Header';
 import MainGrid from './components/MainGrid';
-import SideMenu from './components/SideMenu';
 import AppTheme from '../shared-theme/AppTheme';
 import {
   chartsCustomizations,
@@ -28,7 +27,6 @@ export default function Dashboard(props) {
     <AppTheme {...props} themeComponents={xThemeComponents}>
       <CssBaseline enableColorScheme />
       <Box sx={{ display: 'flex' }}>
-        <SideMenu />
         <AppNavbar />
         {/* Main content */}
         <Box
