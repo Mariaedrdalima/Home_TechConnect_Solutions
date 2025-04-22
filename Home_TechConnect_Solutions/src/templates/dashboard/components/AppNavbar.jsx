@@ -8,9 +8,10 @@ import { tabsClasses } from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
-import SideMenuMobile from './SideMenuMobile';
-import MenuButton from './MenuButton';
 import ColorModeIconDropdown from '../../shared-theme/ColorModeIconDropdown';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import ListItemIcon, { listItemIconClasses } from '@mui/material/ListItemIcon';
+import Container from '@mui/material/Container';
 
 const Toolbar = styled(MuiToolbar)({
   width: '100%',
@@ -29,13 +30,14 @@ const Toolbar = styled(MuiToolbar)({
 });
 
 export default function AppNavbar() {
-  const [open, setOpen] = React.useState(false);
-
+  const handleClick = (event) => { setAnchorEl(event.currentTarget);};
+  const handleClose = () => {setAnchorEl(null);};
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
 
   return (
+    
     <AppBar
       position="fixed"
       sx={{
@@ -48,6 +50,7 @@ export default function AppNavbar() {
         top: 'var(--template-frame-height, 0px)',
       }}
     >
+      <Container maxWidth="lg">
       <Toolbar variant="regular">
         <Stack
           direction="row"
@@ -63,18 +66,19 @@ export default function AppNavbar() {
             spacing={1}
             sx={{ justifyContent: 'center', mr: 'auto' }}
           >
-            <CustomIcon />
             <Typography variant="h4" component="h1" sx={{ color: 'text.primary' }}>
               Dashboard
             </Typography>
           </Stack>
           <ColorModeIconDropdown />
-          <MenuButton aria-label="menu" onClick={toggleDrawer(true)}>
             <MenuRoundedIcon />
-          </MenuButton>
-          <SideMenuMobile open={open} toggleDrawer={toggleDrawer} />
+              Logout
+              <ListItemIcon>
+                <LogoutRoundedIcon fontSize="small" />
+              </ListItemIcon>
         </Stack>
       </Toolbar>
+      </Container>
     </AppBar>
   );
 }

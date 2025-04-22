@@ -16,9 +16,10 @@ export default function Copyright(props) {
       ]}
     >
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Sitemark
-      </Link>{' '}
+      <Link color="text.secondary" href="http://localhost:5173/">
+        TechConnect Solutions 
+      </Link>
+      &nbsp;
       {new Date().getFullYear()}
       {'.'}
     </Typography>

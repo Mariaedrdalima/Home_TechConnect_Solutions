@@ -18,8 +18,16 @@ class ZabbixAPI {
       id: 1,
       auth: null,
     };
-
+  
     const response = await axios.post(this.url + "/api_jsonrpc.php", data);
+  
+    if (response.data.result) {
+      this.authToken = response.data.result;
+      console.log("Login bem-sucedido! Token:", this.authToken);
+    } else {
+      throw new Error("Falha ao autenticar com o Zabbix.");
+    }
+  
     return response.data;
   }
 
@@ -37,6 +45,27 @@ class ZabbixAPI {
   }
 
   
-  // adicione aqui a função getItens
+    // Função para obter itens do Zabbix
+    async getItems(hostId) {
+      const data = {
+        jsonrpc: "2.0",
+        method: "item.get",
+        params: {
+          output: "extend",
+          hostids: String(hostId), // hostId como string, como na requisição original
+          search: {
+            key_: "" // Pode ser ajustado via parâmetro também
+          },
+          sortfield: "name"
+        },
+        auth: this.authToken,
+        id: 1
+      };
+    
+      const response = await axios.post(this.url + "/api_jsonrpc.php", data);
+      console.log("Resposta da API (item.get):", response.data);
+      return response.data.result;
+    }
+    
 }
 module.exports = ZabbixAPI;

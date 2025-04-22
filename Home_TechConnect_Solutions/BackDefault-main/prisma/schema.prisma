@@ -14,15 +14,16 @@ datasource db {
 }
 
 model DownHistory {
-  id        String    @id @default(uuid())
+  id        String   @id @default(uuid()) // Confirmando a chave primária
   nome      String
   key       String
   hostId    String
   hostName  String
   date      DateTime
+  value     Float
   notifications ImmediateFailureNotification[]
 
-  @@map("DownHistory") // Nome da tabela no banco
+  @@map("DownHistory") // Mapeamento para o nome exato da tabela no banco
 }
 
 model ImmediateFailureNotification {
@@ -31,5 +32,5 @@ model ImmediateFailureNotification {
   read           Boolean
   downHistory    DownHistory @relation(fields: [downHistoryId], references: [id], onDelete: Cascade)
 
-  @@map("ImmediateFailureNotification") // Nome da tabela no banco
+  @@map("ImmediateFailureNotification") // Mapeamento para a tabela no banco
 }
